@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md  navbar-light bg-light static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Brum</a>
+    <div class=" d-flex justify-content-end ">
+      <ul class="navbar-nav  mr-auto">
+        <li *ngIf="loggedIn() && roleMatch()" class="nav-item d-flex align-items-center" >
+          <a class="nav-link" [routerLink]="['/admin']" >Admin</a>
+        </li >
+        <li *ngIf="loggedIn() && roleMatch()"  class="nav-item d-flex align-items-center" >
+          <a class="nav-link" [routerLink]="['/users']" >Users</a>
+        </li>
+        <li *ngIf="loggedIn()"  class="nav-item d-flex align-items-center" >
+          <a class="nav-link" [routerLink]="['/find-ride']" ><i class="fa fa-search"></i> Find a ride</a>
+        </li>
+        <li *ngIf="loggedIn()" class="nav-item d-flex align-items-center">
+          <a class="nav-link " [routerLink]="['/offer-ride']"><i class="fa fa-plus"></i> Offer a ride</a>
+        </li>
+        <li *ngIf="!loggedIn()" class="nav-item d-flex align-items-center" >
+          <a class="nav-link" [routerLink]="['/register']" > Sign up</a>
+        </li>
+        <li *ngIf="!loggedIn()" class="nav-item d-flex align-items-center" >
+          <a class="nav-link" [routerLink]="['/login']" >Log in</a>
+        </li>
+        <li>
+          <div dropdown *ngIf="loggedIn()" class="dropdown">
+            <a class="btn dropdown-toggle d-flex align-items-center" dropdownToggle>
+                {{ authService.decodedToken?.unique_name | titlecase }}
+              <span>
+              <img src="{{photoUrl || '../../assets/user.png'}}" alt="">
+            </span>
+            </a>
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+              <a class="dropdown-item" [routerLink]="['/user/edit']"
+                ><i class="fa fa-user"></i> Profile</a
+              >
+              <a class="dropdown-item" [routerLink]="['/user-rides']"
+              ><i class="fa fa-car"></i> My rides</a
+              >
+              <div class="dropdown-divider"></div>
+
+              <a class="dropdown-item" [routerLink]="['/messages']"
+              ><i class="fa fa-comments"></i> Inbox</a
+              >
+              <a class="dropdown-item" [routerLink]="['/lists']"
+              ><i class="fa fa-user"></i> Connected members</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()"
+              ><i class="fa fa-sign-out"> </i> Logout</a
+              >
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

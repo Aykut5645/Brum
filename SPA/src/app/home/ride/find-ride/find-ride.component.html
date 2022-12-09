@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <a href="#" class="text-decoration-none ml-1 ">Advanced search</a>
+  <form class="form d-flex justify-content-between pb-1" #form="ngForm" (ngSubmit)="loadRides()">
+    <input class="form-control mr-sm-2" type="search" placeholder="From..."  id="startPoint" [(ngModel)]="rideParams.startPoint" name="startPoint">
+    <input class="form-control mr-sm-2" type="search" placeholder="To..."  id="endPoint" [(ngModel)]="rideParams.endPoint" name="endPoint">
+    <input class="form-control mr-sm-2" type="search" placeholder="Date"  id="date" [(ngModel)]="rideParams.date" name="date">
+    <input class="form-control mr-sm-2" type="search" placeholder="Passengers"  id="passengers" [(ngModel)]="rideParams.freeSeats" name="passengers">
+
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+
+  </form>
+
+  <br>
+  <div class="ml-1 d-flex justify-content-between ">
+    <h4 class="pt-4">0 rides available</h4>
+      <div dropdown class="dropdown">
+        <a class="btn dropdown-toggle d-flex align-items-center " dropdownToggle>
+          <h4 class="pt-3">Sort</h4>
+          </a>
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item"
+          >Last Added</a
+          >
+          <a class="dropdown-item"
+          >Rating</a
+          >
+          </div>
+      </div>
+  </div>
+    <div *ngFor="let ride of rides">
+      <app-ride-card [ride]="ride"></app-ride-card>
+    </div>
+
+</div>
+<div class="d-flex justify-content-center pt-3" >
+  <pagination [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+  </pagination>
+</div>

@@ -1,0 +1,52 @@
+
+  <div class="card ">
+    <div class="card-body">
+      <div class="d-flex">
+        <div class="profile-info pr-5" >
+            <div class="row">
+              <div class="col">
+                <div class="card-img-wrapper">
+                  <img  src="{{ride.driver.photoUrl || '../../../assets/user.png'}}" alt="{{ride.driver.name}}">
+                </div>
+                <br>
+
+              </div>
+              <div class="col pt-1">
+                <h4>{{ride.driver.name}} {{ride.driver.lastName}}</h4>
+                <h4>{{ride.driver.age}} years old</h4>
+
+                <rating class="star" readonly="true"></rating>
+
+                <h4>1 rating</h4>
+              </div>
+            </div>
+        </div>
+        <div class=" pl-3 flex-grow-1" >
+          <h3>Today - 11:30</h3>
+          <h4>{{ride.startPoint}} - {{ride.endPoint}}</h4>
+          <h5><i class="fa fa-map-marker"></i> Shumen</h5>
+        </div>
+        <div class="pl-5 " >
+          <h1>20lv</h1>
+          <br>
+         <h4 class="mb-0">{{ride.totalSeats - ride.approvedPassengers.length}} seats left</h4>
+
+          <button type="submit" class="btn btn-block btn-primary mt-2" (click)="openModal(modalTemplate)">
+            Request
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <ng-template #modalTemplate>
+    <div class="modal-body">
+      <div class="form-group text-center">
+
+        <h2 >Are you sure you want to request a seat in this ride?</h2>
+        <hr>
+        <button class="btn btn-primary" type="submit">Request</button>
+        <button class="btn btn-default" type="button"  aria-label="Close" (click)="modalRef.hide()">Cancel</button>
+      </div>
+    </div>
+  </ng-template>

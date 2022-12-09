@@ -1,0 +1,54 @@
+header.masthead {
+    position: relative;
+    background: #343a40 url("src/assets/images/bg-masthead.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  h1 {
+    color: #EAEAE7;
+  }
+  .features-icons {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .features-icons .features-icons-item {
+    max-width: 20rem;
+  }
+
+  .features-icons .features-icons-item .features-icons-icon {
+    height: 7rem;
+  }
+
+  .features-icons .features-icons-item .features-icons-icon i {
+    font-size: 4.5rem;
+  }
+
+  .features-icons .features-icons-item:hover .features-icons-icon i {
+    font-size: 5rem;
+  }
+
+  .showcase .showcase-text {
+    padding: 3rem;
+  }
+
+  .showcase .showcase-img {
+    min-height: 30rem;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    .showcase .showcase-text {
+      padding: 7rem;
+    }
+  }
+  .image1 {
+    background-image: url('src/assets/images/bg-showcase-1.jpg');
+  }
+  .image2 {
+    background-image: url('src/assets/images/bg-showcase-2.jpg');
+  }
+  .image3 {
+    background-image: url('src/assets/images/bg-showcase-3.jpg');
+  }

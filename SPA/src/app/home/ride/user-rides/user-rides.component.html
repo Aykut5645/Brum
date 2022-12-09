@@ -1,0 +1,18 @@
+<div  class="container mt-5 ">
+      <mat-tab-group mat-align-tabs="center" animationDuration="0ms" >
+        <mat-tab label="As Driver">
+          <ng-container *ngTemplateOutlet="asDriverTemplate"></ng-container>
+        </mat-tab>
+        <mat-tab label="As Passenger">
+          <ng-container *ngTemplateOutlet="asPassengerTemplate">
+
+          </ng-container></mat-tab>
+      </mat-tab-group>
+</div>
+
+<ng-template #asDriverTemplate>
+  <h1>as driver</h1>
+</ng-template>
+<ng-template #asPassengerTemplate>
+<h1>as pass</h1>
+</ng-template>

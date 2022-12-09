@@ -1,0 +1,20 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
+.fa{
+    color: #3EAAE9;
+}
+
+img {
+  max-height: 50px;
+  border: none;
+  display: inline;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 16px !important;
+  margin-right: 16px !important
+}
+.navbar{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
